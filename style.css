@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bgColor: #f8e4c7;
+    /* warm cream background */
+    --primary-bgColor: #7a1f1f;
+    /* deep brick red - headers, accents */
+    --btn-color: #c9302c;
+    /* appetizing red - buttons */
+    --text-dark: #2b2b2b;
+    /* near-black for body text */
+    --text-light: #fdf6ec;
+    /* cream text on dark backgrounds */
+    --accent-green: #4a7c59;
+    /* mint/herb green accent, ties to your name */
+    --main-font: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--main-bgColor);
+}
+
+.heading {
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+    align-items: center;
+    background-color: var(--main-bgColor);
+    border-bottom: 1px solid rgb(139, 121, 121);
+}
+
+h2 {
+    color: var(--primary-bgColor);
+    font-family: var(--main-font);
+    font-size: 28px;
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.links a {
+    text-decoration: none;
+}
+
+li {
+    font-family: var(--main-font);
+    color: var(--primary-bgColor);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btns {
+    display: flex;
+    gap: 20px;
+}
+
+.book-table,
+.order-online {
+    padding: 10px 20px;
+    font-family: var(--main-font);
+    font-size: 16px;
+    background-color: var(--btn-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 125ms ease;
+}
+
+.book-table:hover,
+.order-online:hover {
+    background-color: var(--accent-green);
+    color: var(--text-dark);
+}
+
+.main-content {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-content h3 {
+    padding: 6px 30px;
+    border-radius: 15px;
+    font-weight: 400;
+    background-color: var(--btn-color);
+    font-family: var(--main-font);
+    margin-top: 150px;
+    color: var(--text-light);
+    border: 1px solid grey;
+}
+
+.main-heading {
+    margin-top: 30px;
+    max-width: 30%;
+}
+
+.main-heading h1 {
+    font-size: 48px;
+    font-family: var(--main-font);
+    color: var(--text-dark);
+}
+
+.main-para {
+    max-width: 45%;
+    margin-top: 30px;
+}
+
+.main-para p {
+    font-family: var(--main-font);
+    color: var(--text-dark);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.experience-btn {
+    margin-top: 30px;
+}
+
+.experience-btn button {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--text-light);
+    font-size: 20px;
+    border-radius: 8px;
+    font-family: var(--main-font);
+    transition: 125ms ease;
+}
+
+.experience-btn button:hover {
+    background-color: var(--accent-green);
+    color: var(--text-dark);
+}
+
+.image-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-end;
+}
+
+.image-container img {
+    object-fit: cover;
+    margin-top: 150px;
+    border-radius: 20px 20px 0 0;
+}
+
+.first-img {
+    width: 220px;
+    height: 250px;
+}
+
+.sec-img {
+    width: 300px;
+    height: 350px;
+}
+
+.third-img {
+    width: 200px;
+    height: 250px;
+}
+
+.fourth-img {
+    width: 300px;
+    height: 350px;
+}
+
+.fifth-img {
+    width: 250px;
+    height: 300px;
+}
+
+.sixth-img {
+    width: 200px;
+    height: 230px;
+}
