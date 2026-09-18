@@ -18,6 +18,8 @@
     --accent-green: #4a7c59;
     /* mint/herb green accent, ties to your name */
     --main-font: 'Inter', sans-serif;
+    --dard-bgColor: #2b1c14;
+    --card-bgColor: rgba(60, 42, 30, 0.96);
 }
 
 body {
@@ -134,6 +136,7 @@ li {
     font-size: 20px;
     border-radius: 8px;
     font-family: var(--main-font);
+    cursor: pointer;
     transition: 125ms ease;
 }
 
@@ -182,4 +185,78 @@ li {
 .sixth-img {
     width: 200px;
     height: 230px;
+}
+
+.about-content {
+    background: var(--dard-bgColor);
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-heading {
+    color: var(--text-light);
+    font-family: var(--main-font);
+    font-size: 30px;
+    margin: 30px auto;
+}
+
+.about-para {
+    color: var(--text-light);
+    font-family: var(--main-font);
+    font-size: 20px;
+    max-width: 60%;
+    line-height: 1.5;
+}
+
+.read-more {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--text-light);
+    font-size: 20px;
+    border-radius: 8px;
+    font-family: var(--main-font);
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.img-container {
+    height: 100%;
+    width: 65%;
+    margin-top: 80px;
+    position: relative;
+}
+
+.stats-card {
+    display: flex;
+    position: absolute;
+    background-color: var(--card-bgColor);
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 25px;
+    width: 70%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.stats-card span {
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: 28px;
+    color: var(--btn-color);
+}
+
+.stats-card p {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #cfc7bd;
 }
