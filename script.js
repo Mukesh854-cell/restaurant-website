@@ -11,7 +11,7 @@ const observer = new IntersectionObserver((entries) => {
             numbers.forEach((el) => {
                 const target = el.textContent;
                 const cleaned = target.replace('+', '').replace('k', '');
-                const isPercentage = target.includes('k' + '+');
+                const isPercentage = target.includes('k+');
                 const number = Number(cleaned);
 
                 const totalTicks = 50;
@@ -28,7 +28,7 @@ const observer = new IntersectionObserver((entries) => {
                     if (count >= number) {
                         clearInterval(interval)
                     }
-                }, 20);
+                }, 30);
             })
         }
     })
