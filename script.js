@@ -1,3 +1,4 @@
+
 const statsSection = document.querySelector('.stats-card');
 
 const observer = new IntersectionObserver((entries) => {
