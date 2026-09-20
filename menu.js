@@ -37,7 +37,7 @@ const menuItems = [
     {
         id: 6,
         name: 'Chhole Bhature',
-        img: 'food images/paneer bhature.webp',
+        img: 'food images/chhole bhature.webp',
         price: 100,
         category: 'Main Course'
     },
@@ -175,3 +175,34 @@ const menuItems = [
         category: 'Beverages'
     }
 ];
+
+const categoryFilter = document.querySelector('.category-filter');
+const menuGrid = document.querySelector('.menu-grid');
+
+categoryFilter.addEventListener('change', () => {
+    const selectedCategory = categoryFilter.value;
+
+    const filteredDished = menuItems.filter((dish) => {
+        if (selectedCategory === 'All') {
+            return true;
+        }
+        return dish.category === selectedCategory;
+    });
+
+    const items = filteredDished.map((item) => {
+        const cardHTML = `
+        <div class="dishes-card">
+            <img src="${item.img}">
+            <h3>${item.name}</h3>
+            <p>${item.price}</p>
+            <button class="order-now" data-id="${item.id}">Order Now</button>
+        </div>
+        `
+
+        return cardHTML;
+    });
+
+    const allCardsHTML = items.join('');
+
+    document.querySelector('.menu-grid').innerHTML = allCardsHTML;
+})
