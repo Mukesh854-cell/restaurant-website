@@ -264,7 +264,9 @@ li {
 }
 
 .services {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--dark-bgColor);
 }
 
 .services-heading {
@@ -358,6 +360,20 @@ li {
     font-family: var(--main-font);
     margin-top: 10px;
     cursor: pointer;
+}
+
+.menu-heading {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-heading h1,
+p {
+    color: var(--text-dark);
+    font-family: var(--main-font);
 }
 
 .category-filter {

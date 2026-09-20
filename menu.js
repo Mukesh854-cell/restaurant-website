@@ -29,7 +29,7 @@ const menuItems = [
     },
     {
         id: 5,
-        name: 'Veg Spring Roll',
+        name: 'Veg Spring Roll (4 pcs)',
         img: 'food images/veg spring roll.jpg',
         price: 80,
         category: 'Starters'
@@ -179,7 +179,7 @@ const menuItems = [
 const categoryFilter = document.querySelector('.category-filter');
 const menuGrid = document.querySelector('.menu-grid');
 
-categoryFilter.addEventListener('change', () => {
+function renderMenu() {
     const selectedCategory = categoryFilter.value;
 
     const filteredDished = menuItems.filter((dish) => {
@@ -205,4 +205,8 @@ categoryFilter.addEventListener('change', () => {
     const allCardsHTML = items.join('');
 
     document.querySelector('.menu-grid').innerHTML = allCardsHTML;
-})
+}
+
+renderMenu();
+
+categoryFilter.addEventListener('change', renderMenu);
