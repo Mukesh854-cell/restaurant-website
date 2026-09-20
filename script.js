@@ -36,3 +36,23 @@ const observer = new IntersectionObserver((entries) => {
 })
 
 observer.observe(statsSection);
+
+const starRating = document.querySelector('.star-rating');
+let selectedRating = 0;
+
+starRating.addEventListener('click', (event) => {
+    if (event.target.classList.contains('star')) {
+        selectedRating = Number(event.target.dataset.value);
+
+        allStars = document.querySelectorAll('.star'); 
+        allStars.forEach((star) => {
+            const starValue = Number(star.dataset.value);
+
+            if (starValue <= selectedRating) {
+                star.style.color = 'gold';
+            } else {
+                star.style.color = '#ccc';
+            }
+        })
+    }
+})

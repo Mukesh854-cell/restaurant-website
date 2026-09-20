@@ -442,3 +442,74 @@ p {
 .order-now:hover {
     background-color: var(--accent-green);
 }
+
+.review-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-bgColor);
+    padding: 20px 0;
+    gap: 50px;
+    height: 300px;
+}
+
+.review-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.review-text-content h1 {
+    color: var(--text-light);
+    font-family: var(--main-font);
+}
+
+.review-text-content p {
+    color: var(--text-light);
+    font-family: var(--main-font);
+    max-width: 80%;
+    line-height: 1.2;
+    font-size: 20px;
+}
+
+.review-form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--main-bgColor);
+    padding: 20px 40px;
+    justify-content: center;
+}
+
+.review-form-content .name, .review {
+    padding: 8px 15px;
+    background-color: var(--text-light);
+    border: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 16px;
+    outline: none;
+}
+
+.star {
+    color: #ccc;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.submit {
+    padding: 8px 16px;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-family: var(--main-font);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 125ms ease;
+}
+
+.submit:hover {
+    background-color: var(--accent-green);
+}
