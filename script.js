@@ -44,7 +44,7 @@ starRating.addEventListener('click', (event) => {
     if (event.target.classList.contains('star')) {
         selectedRating = Number(event.target.dataset.value);
 
-        allStars = document.querySelectorAll('.star'); 
+        allStars = document.querySelectorAll('.star');
         allStars.forEach((star) => {
             const starValue = Number(star.dataset.value);
 
@@ -55,4 +55,31 @@ starRating.addEventListener('click', (event) => {
             }
         })
     }
-})
+});
+
+const inputBox = document.querySelector('.input');
+const textAreaBox = document.querySelector('.review');
+const submitBtn = document.querySelector('.submit');
+
+submitBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const inputValue = inputBox.value;
+    const textAreaValue = textAreaBox.value;
+
+    if (inputValue === '' || textAreaValue === '' || selectedRating === 0) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    console.log('Reached clearing step');
+
+    inputBox.value = '';
+    textAreaBox.value = '';
+    selectedRating = 0;
+
+    allStars.forEach((star) => {
+        star.style.color = '#ccc';
+    });
+
+});
