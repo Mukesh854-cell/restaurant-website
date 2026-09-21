@@ -67,12 +67,19 @@ submitBtn.addEventListener('click', (event) => {
     const inputValue = inputBox.value;
     const textAreaValue = textAreaBox.value;
 
+    const newReview = {
+        id: Date.now(),
+        name: inputValue,
+        comment: textAreaValue,
+        rating: selectedRating
+    };
+
+    reviews.unshift(newReview);
+
     if (inputValue === '' || textAreaValue === '' || selectedRating === 0) {
         alert('Please fill in all fields');
         return;
     }
-
-    console.log('Reached clearing step');
 
     inputBox.value = '';
     textAreaBox.value = '';
@@ -82,4 +89,30 @@ submitBtn.addEventListener('click', (event) => {
         star.style.color = '#ccc';
     });
 
+    renderReviews();
 });
+
+let reviews = [
+    { id: 1, name: 'Priya S.', comment: 'Amazing food and warm service!', rating: 5 },
+    { id: 2, name: 'Rahul K.', comment: 'Great ambiance, will visit again.', rating: 4 },
+    { id: 3, name: 'Jay P.', comment: 'Good food with Good Music in background!', rating: 4 }
+];
+
+renderReviews();
+
+const reviewSection = document.querySelector('.review-container');
+
+function renderReviews() {
+    const reviewsHTML = reviews.map((review) => {
+        const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+        return `
+        <div class="review-card">
+        <h4>${review.name}</h4>
+        <p>${review.comment}</p>
+        <p class="stars">${stars}</p>
+        </div>
+        `;
+    });
+
+    document.querySelector('.review-container').innerHTML = reviewsHTML.join('');
+}
