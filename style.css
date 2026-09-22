@@ -546,3 +546,58 @@ p {
 .review-card .stars {
     font-size: 20px;
 }
+
+.orders-container {
+    margin: 50px 0;
+}
+
+.order-sides {
+    display: flex;
+    border: 1px solid var(--dark-bgColor);
+    border-radius: 20px;
+    max-width: 65%;
+    margin: 0 auto;
+    justify-content: space-between;
+    box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.order-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    max-width: 50%;
+    padding-left: 50px;
+}
+
+.order-card h2{
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.order-card p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.order-card .order-now {
+    padding: 10px 18px;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--main-font);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.order-now:hover {
+    transform: scale(1.1);
+}
+
+.pizza-img {
+    height: 300px;
+}
