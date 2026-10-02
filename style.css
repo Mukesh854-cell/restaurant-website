@@ -22,8 +22,13 @@
     --card-bgColor: rgba(60, 42, 30, 0.96);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--main-bgColor);
+    position: relative;
 }
 
 .heading {
@@ -33,6 +38,10 @@ body {
     align-items: center;
     background-color: var(--main-bgColor);
     border-bottom: 1px solid rgb(139, 121, 121);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 h2 {
@@ -570,7 +579,7 @@ p {
     padding-left: 50px;
 }
 
-.order-card h2{
+.order-card h2 {
     font-size: 30px;
     font-weight: 800;
     margin-bottom: 20px;
@@ -600,4 +609,197 @@ p {
 
 .pizza-img {
     height: 300px;
+}
+
+.reservation-container {
+    background-color: var(--dark-bgColor);
+    padding: 60px 0 80px 0;
+}
+
+.reservation-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.reservation-heading h1 {
+    color: var(--text-light);
+    font-family: var(--main-font);
+    font-size: 40px;
+}
+
+.reservation-heading p {
+    color: var(--text-light);
+    font-size: 22px;
+}
+
+.reservation-card {
+    max-width: 65%;
+    background-color: var(--main-bgColor);
+    margin: 80px auto 0 auto;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    gap: 40px;
+}
+
+.form-left {
+    width: 55%;
+    margin-left: 10px;
+}
+
+.form-left h1 {
+    font-family: var(--main-font);
+    color: var(--text-dark);
+    margin-top: 10px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 29px;
+    margin-top: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-dark);
+    font-family: var(--main-font);
+    font-size: 16px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.input-box {
+    height: 46px;
+    border: 1px solid #686271;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    transition: 0.2s;
+}
+
+.input-box:focus-within {
+    border-color: #7c35ff;
+    box-shadow: 0 0 0 2px rgba(124, 53, 255, 0.15);
+}
+
+.input-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-family: var(--main-font);
+}
+
+.input-box input::placeholder {
+    color: #8f899d;
+}
+
+.message-group {
+    margin-top: 2px;
+    margin-bottom: 24px;
+}
+
+.message-box {
+    height: 82px;
+    border: 1px solid #686271;
+    border-radius: 6px;
+    position: relative;
+    padding: 12px 15px;
+}
+
+.message-box textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-dark);
+    font-family: var(--main-font);
+    font-size: 16px;
+}
+
+.message-box textarea::placeholder {
+    color: #8f899d;
+}
+
+.reserve-btn {
+    width: 100%;
+    height: 39px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg,
+            #7735ff,
+            #5921c7);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.reserve-btn:hover {
+    background: linear-gradient(90deg,
+            #853fff,
+            #6628dc);
+    box-shadow: 0 5px 15px rgba(102, 40, 220, 0.25);
+}
+
+.form-right {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 20px;
+}
+
+.info-card {
+    min-height: 150px;
+    border: 1px solid #514c59;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.info-card h2 {
+    color: var(--text-dark);
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.info-card p {
+    color: rgb(109, 107, 107);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.location-card {
+    min-height: 190px;
+}
+
+.opening-hours {
+    text-align: center;
+    color: var(--text-dark);
+    font-family: var(--main-font);
+    font-size: 16px;
+    margin-top: 6px;
+}
+
+.opening-hours span {
+    color: #7131ff;
+    font-weight: 600;
+    margin: 0 4px;
 }
