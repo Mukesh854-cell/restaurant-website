@@ -116,3 +116,51 @@ function renderReviews() {
 
     document.querySelector('.review-container').innerHTML = reviewsHTML.join('');
 }
+
+const inputName = document.querySelector('.input-name');
+const inputNum = document.querySelector('.input-num');
+const inputDate = document.querySelector('.input-date');
+const inputTime = document.querySelector('.input-time');
+const inputMsg = document.querySelector('.input-msg');
+const reserveBtn = document.querySelector('.reserve-btn');
+
+let bookings = [];
+
+reserveBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const inputNameValue = inputName.value;
+    const inputNumValue = inputNum.value;
+    const inputDateValue = inputDate.value;
+    const inputTimeValue = inputTime.value;
+    const inputMsgValue = inputMsg.value;
+
+    if (inputNameValue === '' || inputNumValue === '' || inputDateValue === '' || inputTimeValue === '') {
+        alert('Please fill in all required fields');
+        return;
+    }
+
+    const existingBooking = bookings.find((booking) => {
+        return booking.date === inputDateValue && booking.time === inputTimeValue;
+    });
+
+    if (existingBooking) {
+        alert('This slot is already booked. Please choose another time.');
+        return;
+    } else {
+        const availableBooking = {
+            name: inputNameValue,
+            number: inputNumValue,
+            date: inputDateValue,
+            time: inputTimeValue,
+            message: inputMsgValue
+        };
+
+        bookings.push(availableBooking);
+    }
+
+    inputName.value = '';
+    inputNum.value = '';
+    inputDate.value = '';
+    inputTime.value = '';
+    inputMsg.value = '';
+});
