@@ -210,3 +210,39 @@ function renderMenu() {
 renderMenu();
 
 categoryFilter.addEventListener('change', renderMenu);
+
+let order = [];
+
+document.querySelector('.menu-grid').addEventListener('click' , (event) => {
+    if (event.target.classList.contains('order-now')) {
+        const foodId = event.target.dataset.id;
+        const clickedFood = menuItems.find((menu) => {
+            return menu.id === Number(foodId);
+        });
+        const exsitingOrderFood = order.find((food) => {
+            return food.id === clickedFood.id;
+        });
+
+        if (exsitingOrderFood) {
+            exsitingOrderFood.quantity += 1;
+        } else {
+            const newOrderFood = {... clickedFood, quantity: 1}
+            order.push(newOrderFood);
+        }
+        console.log(order);
+    };
+
+    updateOrderSummary();
+})
+
+function updateOrderSummary() {
+    const itemCount = order.reduce((accumulator, current) => {
+        return accumulator + current.quantity;
+    }, 0);
+
+    const total = order.reduce((accumulator, current) => {
+        return accumulator + (current.price * current.quantity);
+    }, 0);
+
+    document.querySelector('.order-summary').textContent = `${itemCount} items - ₹${total}`
+}
