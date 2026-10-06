@@ -196,9 +196,9 @@ function renderMenu() {
             <h3>${item.name}</h3>
             <p>${item.price}</p>
             <button class="order-now" data-id="${item.id}">Order Now</button>
+            <span class="qty-display" data-id="${item.id}">0</span>
         </div>
         `
-
         return cardHTML;
     });
 
@@ -213,7 +213,8 @@ categoryFilter.addEventListener('change', renderMenu);
 
 let order = [];
 
-document.querySelector('.menu-grid').addEventListener('click' , (event) => {
+document.querySelector('.menu-grid').addEventListener('click', (event) => {
+
     if (event.target.classList.contains('order-now')) {
         const foodId = event.target.dataset.id;
         const clickedFood = menuItems.find((menu) => {
@@ -226,14 +227,22 @@ document.querySelector('.menu-grid').addEventListener('click' , (event) => {
         if (exsitingOrderFood) {
             exsitingOrderFood.quantity += 1;
         } else {
-            const newOrderFood = {... clickedFood, quantity: 1}
+            const newOrderFood = { ...clickedFood, quantity: 1 }
             order.push(newOrderFood);
         }
         console.log(order);
+
+        const qtySpan = document.querySelector(`.qty-display[data-id="${foodId}"]`);
+
+        const matchOrderItem = order.find((item) => {
+            return item.id === Number(foodId);
+        });
+
+        qtySpan.textContent = matchOrderItem.quantity;
     };
 
     updateOrderSummary();
-})
+});
 
 function updateOrderSummary() {
     const itemCount = order.reduce((accumulator, current) => {
