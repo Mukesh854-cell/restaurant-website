@@ -163,8 +163,9 @@ p {
     margin-left: 5px;
     font-family: var(--main-font);
     font-size: 18px;
-    background-color: var(--dark-bgColor);
-    color: var(--text-light);
+    color: var(--text-dark);
+    font-weight: bold;
+    border: 1px solid var(--text-dark);
     padding: 5px;
     border-radius: 7px;
 }

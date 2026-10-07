@@ -156,6 +156,7 @@ reserveBtn.addEventListener('click', (event) => {
         };
 
         bookings.push(availableBooking);
+        alert('Your reservation has been confirmed successfully.')
     }
 
     inputName.value = '';

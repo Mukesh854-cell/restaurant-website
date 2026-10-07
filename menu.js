@@ -194,9 +194,9 @@ function renderMenu() {
         <div class="dishes-card">
             <img src="${item.img}">
             <h3>${item.name}</h3>
-            <p>${item.price}</p>
+            <p>₹${item.price}</p>
             <button class="order-now" data-id="${item.id}">Order Now</button>
-            <span class="qty-display" data-id="${item.id}">0</span>
+            <span class="qty-display" data-id="${item.id}" style="display: none;">0</span>
         </div>
         `
         return cardHTML;
@@ -239,6 +239,7 @@ document.querySelector('.menu-grid').addEventListener('click', (event) => {
         });
 
         qtySpan.textContent = matchOrderItem.quantity;
+        qtySpan.style.display = 'inline';
     };
 
     updateOrderSummary();

@@ -507,6 +507,7 @@ li {
 .order-card p {
     font-size: 20px;
     margin-bottom: 20px;
+    font-family: var(--main-font);
 }
 
 .order-card .order-now {
@@ -551,6 +552,7 @@ li {
 
 .reservation-heading p {
     color: var(--text-light);
+    font-family: var(--main-font);
     font-size: 22px;
 }
 
@@ -703,6 +705,7 @@ li {
     color: rgb(109, 107, 107);
     font-size: 16px;
     line-height: 24px;
+    font-family: var(--main-font);
 }
 
 .location-card {
