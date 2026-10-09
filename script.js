@@ -174,3 +174,28 @@ const day = String(today.getDate()).padStart(2, '0');
 const todayString = `${year}-${month}-${day}`;
 
 document.querySelector('.input-date').min = todayString;
+
+const hours = [9, 10, 11, 12, 13, 14, 15, 16 ,17 ,18, 19, 20, 21, 22, 23];
+
+const mappedHours = hours.map((hour) => {
+    const hh = String(hour).padStart(2, '0');
+    const first = `${hh}:00`;
+    const second = `${hh}:30`;
+    return [first, second];
+});
+
+console.log(mappedHours);
+
+const timeSlots = mappedHours.flat();
+console.log(timeSlots);
+
+const mappedTimeSlots = timeSlots.map((timeSlot) => {
+    return `<option value="${timeSlot}">${timeSlot}</option>`
+})
+
+const HoursHTML =`<option value="" selected disabled>Select time</option>` + mappedTimeSlots.join('');
+document.querySelector('.input-time').innerHTML = HoursHTML;
+console.log(HoursHTML)
+
+
+console.log(mappedTimeSlots);
