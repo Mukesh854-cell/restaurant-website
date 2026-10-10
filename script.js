@@ -175,7 +175,7 @@ const todayString = `${year}-${month}-${day}`;
 
 document.querySelector('.input-date').min = todayString;
 
-const hours = [9, 10, 11, 12, 13, 14, 15, 16 ,17 ,18, 19, 20, 21, 22, 23];
+const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
 const mappedHours = hours.map((hour) => {
     const hh = String(hour).padStart(2, '0');
@@ -193,9 +193,7 @@ const mappedTimeSlots = timeSlots.map((timeSlot) => {
     return `<option value="${timeSlot}">${timeSlot}</option>`
 })
 
-const HoursHTML =`<option value="" selected disabled>Select time</option>` + mappedTimeSlots.join('');
+const HoursHTML = `<option value="" selected disabled>Select time</option>` + mappedTimeSlots.join('');
 document.querySelector('.input-time').innerHTML = HoursHTML;
-console.log(HoursHTML)
-
 
 console.log(mappedTimeSlots);

@@ -240,9 +240,10 @@ document.querySelector('.menu-grid').addEventListener('click', (event) => {
 
         qtySpan.textContent = matchOrderItem.quantity;
         qtySpan.style.display = 'inline';
+        updateOrderSummary();
+        localStorage.setItem('order', JSON.stringify(order));
     };
 
-    updateOrderSummary();
 });
 
 function updateOrderSummary() {
