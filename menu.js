@@ -211,7 +211,9 @@ renderMenu();
 
 categoryFilter.addEventListener('change', renderMenu);
 
-let order = [];
+let order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
+
+updateOrderSummary();
 
 document.querySelector('.menu-grid').addEventListener('click', (event) => {
 
