@@ -176,6 +176,7 @@ const menuItems = [
     }
 ];
 
+let order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
 const categoryFilter = document.querySelector('.category-filter');
 const menuGrid = document.querySelector('.menu-grid');
 
@@ -192,11 +193,11 @@ function renderMenu() {
     const items = filteredDished.map((item) => {
         const cardHTML = `
         <div class="dishes-card">
-            <img src="${item.img}">
-            <h3>${item.name}</h3>
-            <p>₹${item.price}</p>
-            <button class="order-now" data-id="${item.id}">Order Now</button>
-            <span class="qty-display" data-id="${item.id}" style="display: none;">0</span>
+        <img src="${item.img}">
+        <h3>${item.name}</h3>
+        <p>₹${item.price}</p>
+        <button class="order-now" data-id="${item.id}">Order Now</button>
+        <span class="qty-display" data-id="${item.id}" style="display: none;">0</span>
         </div>
         `
         return cardHTML;
@@ -205,13 +206,21 @@ function renderMenu() {
     const allCardsHTML = items.join('');
 
     document.querySelector('.menu-grid').innerHTML = allCardsHTML;
+
+    order.forEach((dish) => {
+        const dishSpan = document.querySelector(`.qty-display[data-id="${dish.id}"]`);
+
+        if (dishSpan) {
+            dishSpan.textContent = `QTY: ${dish.quantity}`;
+            dishSpan.style.display = 'inline';
+        }
+    });
 }
 
 renderMenu();
 
 categoryFilter.addEventListener('change', renderMenu);
 
-let order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
 
 updateOrderSummary();
 
@@ -240,7 +249,7 @@ document.querySelector('.menu-grid').addEventListener('click', (event) => {
             return item.id === Number(foodId);
         });
 
-        qtySpan.textContent = matchOrderItem.quantity;
+        qtySpan.textContent = `QTY: ${matchOrderItem.quantity}`;
         qtySpan.style.display = 'inline';
         updateOrderSummary();
         localStorage.setItem('order', JSON.stringify(order));

@@ -408,17 +408,21 @@ li {
     border: 1px solid var(--main-bgColor);
     padding: 20px 40px;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .review-form-content .input,
 .review {
     padding: 8px 15px;
-    background-color: var(--text-light);
-    border: none;
-    color: var(--text-dark);
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid var(--main-bgColor);
+    resize: none;
+    color: var(--main-bgColor);
     font-weight: bold;
     font-size: 16px;
     outline: none;
+    background: none;
 }
 
 .star {

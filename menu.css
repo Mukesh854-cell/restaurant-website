@@ -162,7 +162,7 @@ p {
 .qty-display {
     margin-left: 5px;
     font-family: var(--main-font);
-    font-size: 18px;
+    font-size: 12px;
     color: var(--text-dark);
     font-weight: bold;
     border: 1px solid var(--text-dark);
