@@ -41,7 +41,7 @@ body {
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1;
 }
 
 h2 {
@@ -739,4 +739,61 @@ li {
     color: #7131ff;
     font-weight: 600;
     margin: 0 4px;
+}
+
+.overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.overlay-screen {
+    position: relative;
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(228, 224, 224);
+    min-height: 100px;
+}
+
+.js-tick {
+    height: 70px;
+    width: 70px;
+    font-size: 30px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;    
+}
+
+.success .js-tick {
+    color: white;
+}
+
+.error .js-tick {
+    color: white;
+}
+
+.js-msg {
+    font-family: var(--main-font);
+    font-weight: bold;
+}
+
+.js-close {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+    cursor: pointer;
 }

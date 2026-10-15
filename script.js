@@ -144,7 +144,7 @@ reserveBtn.addEventListener('click', (event) => {
     });
 
     if (existingBooking) {
-        alert('This slot is already booked. Please choose another time.');
+        showOverlay('error', 'This slot is already booked. Please choose another time.');
         return;
     } else {
         const availableBooking = {
@@ -156,7 +156,7 @@ reserveBtn.addEventListener('click', (event) => {
         };
 
         bookings.push(availableBooking);
-        alert('Your reservation has been confirmed successfully.')
+        showOverlay('success', 'Your reservation has been confirmed successfully.');
     }
 
     inputName.value = '';
@@ -197,3 +197,29 @@ const HoursHTML = `<option value="" selected disabled>Select time</option>` + ma
 document.querySelector('.input-time').innerHTML = HoursHTML;
 
 console.log(mappedTimeSlots);
+
+const overlayContainer = document.querySelector('.overlay-container');
+const overlayScreen = document.querySelector('.overlay-screen');
+const jsTick = document.querySelector('.js-tick');
+const jsMsg = document.querySelector('.js-msg');
+const jsCloseBtn = document.querySelector('.js-close');
+
+function showOverlay(type, message) {
+    overlayScreen.classList.add(type);
+
+    if (type === 'success') {
+        jsTick.textContent = '✓';
+        jsTick.style.backgroundColor = 'green';
+    } else {
+        jsTick.textContent = 'X';
+        jsTick.style.backgroundColor = 'red';
+
+    }
+
+    jsMsg.textContent = message;
+    overlayContainer.style.display = 'flex';
+}
+
+jsCloseBtn.addEventListener('click', () => {
+    overlayContainer.style.display = 'none';
+})
