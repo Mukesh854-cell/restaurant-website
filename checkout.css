@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bgColor: #f8e4c7;
+    /* warm cream background */
+    --primary-bgColor: #7a1f1f;
+    /* deep brick red - headers, accents */
+    --btn-color: #c9302c;
+    /* appetizing red - buttons */
+    --text-dark: #2b2b2b;
+    /* near-black for body text */
+    --text-light: #fdf6ec;
+    /* cream text on dark backgrounds */
+    --accent-green: #4a7c59;
+    /* mint/herb green accent, ties to your name */
+    --main-font: 'Inter', sans-serif;
+    --dark-bgColor: #2b1c14;
+    --card-bgColor: rgba(60, 42, 30, 0.96);
+}
+
+body {
+    background-color: var(--main-bgColor);
+}
+
+a {
+    text-decoration: none;
+}
+
+.back-to-menu {
+    margin: 30px;
+    color: var(--dark-bgColor);
+    border: 1px solid var(--dark-bgColor);
+    background: transparent;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 125ms ease;
+}
+
+.back-to-menu:hover {
+    background-color: var(--dark-bgColor);
+    color: var(--text-light);
+}
+
+.heading-container {
+    margin: 10px 40px;
+    font-family: var(--main-font);
+    color: var(--text-dark);
+}
