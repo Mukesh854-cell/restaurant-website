@@ -53,3 +53,79 @@ a {
     font-family: var(--main-font);
     color: var(--text-dark);
 }
+
+.orders-container {
+    width: 70%;
+    /* background-color: white; */
+    margin: 0 auto;
+}
+
+.items-container {
+    width: 60%;
+    box-shadow: 1px 1px 16px rgb(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid black;
+}
+
+.image-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.food-image {
+    width: 120px;
+    height: 100px;
+}
+
+.food-image img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.content .food-name {
+    font-family: var(--main-font);
+    color: var(--dark-bgColor);
+}
+
+.content .price {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+}
+
+.quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-container p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quantity-container button {
+    padding: 5px 8px;
+    font-size: 20px;
+    background: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
