@@ -50,6 +50,16 @@ itemsContainer.addEventListener('click', (event) => {
         }
         localStorage.setItem('order', JSON.stringify(order));
         renderOrder();
+    } else if (event.target.classList.contains('plus')) {
+        const productId = event.target.dataset.id;
+
+        const clickedProduct = order.find((product) => {
+            return product.id === Number(productId);
+        })
+
+        clickedProduct.quantity += 1;
+        localStorage.setItem('order', JSON.stringify(order));
+        renderOrder();
     }
     
 })
