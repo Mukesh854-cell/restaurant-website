@@ -3,14 +3,17 @@ console.log(order);
 
 const itemsContainer = document.querySelector('.items-container')
 
-if (order.length === 0) {
-    itemsContainer.textContent = 'Your order is empty. Add something from the menu!';
-} else {
-    itemsContainer.innerHTML = order.map(createRow).join('');
+function renderOrder() {
+    if (order.length === 0) {
+        itemsContainer.textContent = 'Your order is empty. Add something from the menu!';
+    } else {
+        itemsContainer.innerHTML = order.map(createRow).join('');
+    }
 }
+renderOrder();
 
 function createRow(item) {
-   return `
+    return `
         <div class="item">
                 <div class="image-text-container">
                     <div class="food-image">
@@ -30,3 +33,23 @@ function createRow(item) {
     `;
 
 }
+
+itemsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('minus')) {
+        const itemId = event.target.dataset.id;
+
+        const clickedItem = order.find((item) => {
+            return item.id === Number(itemId);
+        })
+
+        clickedItem.quantity -= 1;
+        if (clickedItem.quantity <= 0) {
+            order = order.filter((item) => {
+                return item.id !== Number(itemId);
+            });
+        }
+        localStorage.setItem('order', JSON.stringify(order));
+        renderOrder();
+    }
+    
+})
