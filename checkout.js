@@ -1,14 +1,17 @@
 let order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
 console.log(order);
 
-const itemsContainer = document.querySelector('.items-container')
+const itemsContainer = document.querySelector('.items-container');
+const totalPriceContainer = document.querySelector('.total-price-container');
 
 function renderOrder() {
     if (order.length === 0) {
         itemsContainer.textContent = 'Your order is empty. Add something from the menu!';
+        totalPriceContainer.style.display = 'none';
     } else {
         itemsContainer.innerHTML = order.map(createRow).join('');
-    }
+        totalPriceContainer.innerHTML = order.map(createBillRow).join('');
+    } 
 }
 renderOrder();
 
@@ -63,3 +66,20 @@ itemsContainer.addEventListener('click', (event) => {
     }
     
 })
+
+function getSubtotal() {
+    return order.reduce((accumulator, current) => {
+        return accumulator + (current.quantity * current.price);
+    }, 0)
+}
+console.log(getSubtotal());
+
+
+function createBillRow(item) {
+    return `
+        <div class="bill-row">
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">₹${item.price * item.quantity}</span>
+        </div>
+    `
+}

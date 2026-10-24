@@ -56,8 +56,9 @@ a {
 
 .orders-container {
     width: 70%;
-    /* background-color: white; */
     margin: 0 auto;
+    display: flex;
+    gap: 30px;
 }
 
 .items-container {
@@ -128,4 +129,27 @@ a {
     border-radius: 10px;
     border: none;
     cursor: pointer;
+}
+
+.total-price-container {
+    box-shadow: 1px 1px 16px rgb(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    font-family: var(--main-font);
+    font-weight: bold;
+    width: 25%;
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bill-row span {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.bill-row:last-child {
+    border-bottom: 1px solid black;
 }
