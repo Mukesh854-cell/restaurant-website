@@ -140,9 +140,19 @@ a {
     width: 25%;
 }
 
+.bill-items {
+    border-bottom: 1px solid var(--dark-bgColor);
+}
+
 .bill-row {
     display: flex;
     justify-content: space-between;
+}
+
+.bill-row .dish-quantity {
+    font-size: 12px;
+    font-family: var(--main-font);
+    font-weight: bold;
 }
 
 .bill-row span {
@@ -152,4 +162,8 @@ a {
 
 .bill-row:last-child {
     border-bottom: 1px solid black;
+}
+
+.bill-summary {
+    margin-top: 10px;
 }

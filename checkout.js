@@ -10,8 +10,8 @@ function renderOrder() {
         totalPriceContainer.style.display = 'none';
     } else {
         itemsContainer.innerHTML = order.map(createRow).join('');
-        totalPriceContainer.innerHTML = order.map(createBillRow).join('');
-    } 
+        totalPriceContainer.innerHTML = `<div class="bill-items">${order.map(createBillRow).join('')}</div> <div class="bill-summary">${createSummaryRow('Subtotal', getSubtotal())}</div>`;
+    }
 }
 renderOrder();
 
@@ -64,7 +64,7 @@ itemsContainer.addEventListener('click', (event) => {
         localStorage.setItem('order', JSON.stringify(order));
         renderOrder();
     }
-    
+
 })
 
 function getSubtotal() {
@@ -79,7 +79,19 @@ function createBillRow(item) {
     return `
         <div class="bill-row">
             <span class="item-name">${item.name}</span>
-            <span class="item-price">₹${item.price * item.quantity}</span>
+            <div class="price-container">
+                <span class="dish-quantity">(${item.price}x${item.quantity})</span>
+                <span class="item-price">₹${item.price * item.quantity}</span>
+            </div>
+        </div>
+    `
+}
+
+function createSummaryRow(label, amount) {
+    return `
+        <div class="bill-row">
+            <span class="subtotal">${label}</span>
+            <span class="amount">₹${amount}</span>
         </div>
     `
 }
