@@ -10,7 +10,12 @@ function renderOrder() {
         totalPriceContainer.style.display = 'none';
     } else {
         itemsContainer.innerHTML = order.map(createRow).join('');
-        totalPriceContainer.innerHTML = `<div class="bill-items">${order.map(createBillRow).join('')}</div> <div class="bill-summary">${createSummaryRow('Subtotal', getSubtotal())}</div>`;
+        totalPriceContainer.innerHTML = 
+        `<div class="bill-items">${order.map(createBillRow).join('')}</div>
+         <div class="bill-summary">
+            ${createSummaryRow('Subtotal', getSubtotal())}
+            ${createSummaryRow('5% Tax', getTax(getSubtotal(), 5))}
+        </div>`;
     }
 }
 renderOrder();
@@ -74,7 +79,6 @@ function getSubtotal() {
 }
 console.log(getSubtotal());
 
-
 function createBillRow(item) {
     return `
         <div class="bill-row">
@@ -94,4 +98,8 @@ function createSummaryRow(label, amount) {
             <span class="amount">₹${amount}</span>
         </div>
     `
+}
+
+function getTax(subtotal, rate) {
+    return (subtotal * rate) / 100;
 }

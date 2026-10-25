@@ -160,10 +160,7 @@ a {
     font-size: 18px;
 }
 
-.bill-row:last-child {
-    border-bottom: 1px solid black;
-}
-
 .bill-summary {
     margin-top: 10px;
+    border-bottom: 1px solid var(--dark-bgColor);
 }
