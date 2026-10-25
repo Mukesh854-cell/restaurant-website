@@ -160,7 +160,7 @@ a {
     font-size: 18px;
 }
 
-.bill-summary {
+.bill-summary, .bill-total{
     margin-top: 10px;
     border-bottom: 1px solid var(--dark-bgColor);
 }

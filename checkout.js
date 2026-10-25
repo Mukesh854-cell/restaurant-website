@@ -15,7 +15,8 @@ function renderOrder() {
          <div class="bill-summary">
             ${createSummaryRow('Subtotal', getSubtotal())}
             ${createSummaryRow('5% Tax', getTax(getSubtotal(), 5))}
-        </div>`;
+        </div>
+        <div class="bill-total">${createSummaryRow('Total Cost', getTotal())}</div>`;
     }
 }
 renderOrder();
@@ -102,4 +103,8 @@ function createSummaryRow(label, amount) {
 
 function getTax(subtotal, rate) {
     return (subtotal * rate) / 100;
+}
+
+function getTotal() {
+    return getSubtotal() + getTax(getSubtotal(), 5);
 }
