@@ -11,12 +11,15 @@ function renderOrder() {
     } else {
         itemsContainer.innerHTML = order.map(createRow).join('');
         totalPriceContainer.innerHTML = 
-        `<div class="bill-items">${order.map(createBillRow).join('')}</div>
+        `
+        <div class="bill-items">${order.map(createBillRow).join('')}</div>
          <div class="bill-summary">
             ${createSummaryRow('Subtotal', getSubtotal())}
             ${createSummaryRow('5% Tax', getTax(getSubtotal(), 5))}
         </div>
-        <div class="bill-total">${createSummaryRow('Total Cost', getTotal())}</div>`;
+        <div class="bill-total">${createSummaryRow('Total Cost', getTotal())}</div>
+        <p class="bill-thanks">Thank you for choosing Mirch &amp; Mint</p>
+        `;
     }
 }
 renderOrder();

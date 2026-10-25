@@ -164,3 +164,10 @@ a {
     margin-top: 10px;
     border-bottom: 1px solid var(--dark-bgColor);
 }
+
+.bill-thanks {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
