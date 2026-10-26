@@ -149,4 +149,13 @@ orderForm.addEventListener('submit', (event) => {
     console.log(numberInputValue)
     console.log(addressInputValue)
     console.log(instructionsInputValue)
+
+    order = [];
+    localStorage.setItem('order', JSON.stringify(order));
+    renderOrder();
+
+    nameInput.value = '';
+    numberInput.value = '';
+    addressInput.value = '';
+    instructionsInput.value = '';
 })
