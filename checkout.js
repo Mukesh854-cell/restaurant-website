@@ -3,6 +3,11 @@ console.log(order);
 
 const itemsContainer = document.querySelector('.items-container');
 const totalPriceContainer = document.querySelector('.total-price-container');
+const orderForm = document.querySelector('.order-form');
+const nameInput = document.querySelector('.name-input');
+const numberInput = document.querySelector('.number-input');
+const addressInput = document.querySelector('.address-input');
+const instructionsInput = document.querySelector('.instructions');
 
 function renderOrder() {
     if (order.length === 0) {
@@ -10,8 +15,8 @@ function renderOrder() {
         totalPriceContainer.style.display = 'none';
     } else {
         itemsContainer.innerHTML = order.map(createRow).join('');
-        totalPriceContainer.innerHTML = 
-        `
+        totalPriceContainer.innerHTML =
+            `
         <div class="bill-items">${order.map(createBillRow).join('')}</div>
          <div class="bill-summary">
             ${createSummaryRow('Subtotal', getSubtotal())}
@@ -111,3 +116,37 @@ function getTax(subtotal, rate) {
 function getTotal() {
     return getSubtotal() + getTax(getSubtotal(), 5);
 }
+
+// Returns true only if the text is exactly 10 digits (0-9) and nothing else.
+// ^ = start of text, [0-9] = one digit, {10} = exactly 10 times, $ = end of text.
+function isValidNumber(number) {
+    return /^[0-9]{10}$/.test(number);
+}
+
+orderForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const nameInputValue = nameInput.value.trim();
+    const numberInputValue = numberInput.value.trim();
+    const addressInputValue = addressInput.value.trim();
+    const instructionsInputValue = instructionsInput.value.trim();
+
+    if (order.length === 0) {
+        console.log('Your order is empty')
+        return;
+    }
+
+    if (nameInputValue === '' || numberInputValue === '' || addressInputValue === '') {
+        console.log('Fill required fields');
+        return;
+    }
+
+    if (!isValidNumber(numberInputValue)) {
+        console.log('Invalid phone number');
+        return;
+    }
+
+    console.log(nameInputValue)
+    console.log(numberInputValue)
+    console.log(addressInputValue)
+    console.log(instructionsInputValue)
+})
