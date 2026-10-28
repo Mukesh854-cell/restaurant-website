@@ -159,3 +159,24 @@ orderForm.addEventListener('submit', (event) => {
     addressInput.value = '';
     instructionsInput.value = '';
 })
+
+nameInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        numberInput.focus();
+    }
+})
+
+numberInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        addressInput.focus();
+    }
+})
+
+addressInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        instructionsInput.focus();
+    }
+})
