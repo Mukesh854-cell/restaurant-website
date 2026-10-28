@@ -3,11 +3,20 @@ console.log(order);
 
 const itemsContainer = document.querySelector('.items-container');
 const totalPriceContainer = document.querySelector('.total-price-container');
+
+// ORDER FORM
 const orderForm = document.querySelector('.order-form');
 const nameInput = document.querySelector('.name-input');
 const numberInput = document.querySelector('.number-input');
 const addressInput = document.querySelector('.address-input');
 const instructionsInput = document.querySelector('.instructions');
+
+// OVERLAY CARD
+const overlayContainer = document.querySelector('.overlay-container');
+const overlayScreen = document.querySelector('.overlay-screen');
+const jsTick = document.querySelector('.js-tick');
+const jsMsg = document.querySelector('.js-msg');
+const jsCloseBtn = document.querySelector('.js-close');
 
 function renderOrder() {
     if (order.length === 0) {
@@ -179,4 +188,24 @@ addressInput.addEventListener('keydown', (event) => {
         event.preventDefault();
         instructionsInput.focus();
     }
+})
+
+function showOverlay(type, message) {
+    overlayScreen.classList.add(type);
+
+    if (type === 'success') {
+        jsTick.textContent = '✓';
+        jsTick.style.backgroundColor = 'green';
+    } else {
+        jsTick.textContent = 'X';
+        jsTick.style.backgroundColor = 'red';
+
+    }
+
+    jsMsg.textContent = message;
+    overlayContainer.style.display = 'flex';
+}
+
+jsCloseBtn.addEventListener('click', () => {
+    overlayContainer.style.display = 'none';
 })
