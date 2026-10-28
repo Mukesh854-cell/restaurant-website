@@ -132,6 +132,10 @@ function isValidNumber(number) {
     return /^[0-9]{10}$/.test(number);
 }
 
+function makeOrderId() {
+    return Math.floor(Math.random() * 9000) + 1000;
+}
+
 orderForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const nameInputValue = nameInput.value.trim();
@@ -140,24 +144,22 @@ orderForm.addEventListener('submit', (event) => {
     const instructionsInputValue = instructionsInput.value.trim();
 
     if (order.length === 0) {
-        console.log('Your order is empty')
+        showOverlay('error', 'Your cart is empty. Add something from the menu first.')
         return;
     }
 
     if (nameInputValue === '' || numberInputValue === '' || addressInputValue === '') {
-        console.log('Fill required fields');
+        alert('Fill required fields');
         return;
     }
 
     if (!isValidNumber(numberInputValue)) {
-        console.log('Invalid phone number');
+        alert('Invalid phone number');
         return;
     }
 
-    console.log(nameInputValue)
-    console.log(numberInputValue)
-    console.log(addressInputValue)
-    console.log(instructionsInputValue)
+    const orderID = makeOrderId();
+    showOverlay('success', `Order placed! Your order ID: ${orderID}`);
 
     order = [];
     localStorage.setItem('order', JSON.stringify(order));
@@ -190,6 +192,27 @@ addressInput.addEventListener('keydown', (event) => {
     }
 })
 
+// orderForm.addEventListener('input', () => {
+//     const formObject = {
+//         name: nameInput.value,
+//         number: numberInput.value,
+//         address: addressInput.value,
+//         instructions: instructionsInput.value
+//     }
+
+//     if (savedFormText) {
+//         const saved = JSON.parse(savedFormText);
+//         nameInput.value = saved.name;
+//         numberInput.value = saved.number;
+//         addressInput.value = saved.address;
+//         instructionsInput.value = saved.instructions;
+//     }
+//     localStorage.setItem('formObject', JSON.stringify(formObject));
+
+//     const savedFormText = localStorage.getItem('formObject');
+
+// })
+
 function showOverlay(type, message) {
     overlayScreen.classList.add(type);
 
@@ -209,3 +232,4 @@ function showOverlay(type, message) {
 jsCloseBtn.addEventListener('click', () => {
     overlayContainer.style.display = 'none';
 })
+
