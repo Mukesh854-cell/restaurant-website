@@ -163,6 +163,7 @@ orderForm.addEventListener('submit', (event) => {
 
     order = [];
     localStorage.setItem('order', JSON.stringify(order));
+    localStorage.removeItem('formObject');
     renderOrder();
 
     nameInput.value = '';
@@ -192,26 +193,25 @@ addressInput.addEventListener('keydown', (event) => {
     }
 })
 
-// orderForm.addEventListener('input', () => {
-//     const formObject = {
-//         name: nameInput.value,
-//         number: numberInput.value,
-//         address: addressInput.value,
-//         instructions: instructionsInput.value
-//     }
+orderForm.addEventListener('input', () => {
+    const formObject = {
+        name: nameInput.value,
+        number: numberInput.value,
+        address: addressInput.value,
+        instructions: instructionsInput.value
+    }
 
-//     if (savedFormText) {
-//         const saved = JSON.parse(savedFormText);
-//         nameInput.value = saved.name;
-//         numberInput.value = saved.number;
-//         addressInput.value = saved.address;
-//         instructionsInput.value = saved.instructions;
-//     }
-//     localStorage.setItem('formObject', JSON.stringify(formObject));
+    localStorage.setItem('formObject', JSON.stringify(formObject));
+})
 
-//     const savedFormText = localStorage.getItem('formObject');
+const savedFormText = localStorage.getItem('formObject') ? JSON.parse(localStorage.getItem('formObject')) : null;
 
-// })
+if (savedFormText) {
+    nameInput.value = savedFormText.name;
+    numberInput.value = savedFormText.number;
+    addressInput.value = savedFormText.address;
+    instructionsInput.value = savedFormText.instructions;
+}
 
 function showOverlay(type, message) {
     overlayScreen.classList.add(type);
