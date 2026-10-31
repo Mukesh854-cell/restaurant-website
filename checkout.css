@@ -290,3 +290,7 @@ a {
     font-size: 28px;
     cursor: pointer;
 }
+
+.dessert-overlay {
+    display: none;
+}

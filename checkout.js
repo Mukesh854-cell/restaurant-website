@@ -1,6 +1,8 @@
 let order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
 console.log(order);
 
+let orderJustPlaced = false;
+
 const itemsContainer = document.querySelector('.items-container');
 const totalPriceContainer = document.querySelector('.total-price-container');
 
@@ -17,6 +19,82 @@ const overlayScreen = document.querySelector('.overlay-screen');
 const jsTick = document.querySelector('.js-tick');
 const jsMsg = document.querySelector('.js-msg');
 const jsCloseBtn = document.querySelector('.js-close');
+
+// DESSERT OBJECT
+const desserts = [{
+    id: 16,
+    name: 'Chocolate Brownie',
+    img: 'food images/Chocolate Brownie.jpg',
+    price: 100,
+    category: 'Desserts'
+},
+{
+    id: 17,
+    name: 'Chocolate Triffle',
+    img: 'food images/Chocolate-trifle.jpg',
+    price: 150,
+    category: 'Desserts'
+},
+{
+    id: 18,
+    name: 'Gulab Jamun (2 pcs)',
+    img: 'food images/gulab jamun.jpg',
+    price: 50,
+    category: 'Desserts'
+},
+{
+    id: 19,
+    name: 'Ice Cream Sundae',
+    img: 'food images/ice cream sundae.jpg',
+    price: 100,
+    category: 'Desserts'
+},
+{
+    id: 20,
+    name: 'Ice Cream',
+    img: 'food images/Ice-Cream.jpg',
+    price: 80,
+    category: 'Desserts'
+},
+{
+    id: 21,
+    name: 'Jalebi (5 pcs)',
+    img: 'food images/jalebi.jpg',
+    price: 80,
+    category: 'Desserts'
+},
+{
+    id: 22,
+    name: 'Nutella Waffles',
+    img: 'food images/nutella-waffles.jpg',
+    price: 180,
+    category: 'Desserts'
+}];
+
+// MENU ITEMS
+const dessertOverlay = document.querySelector('.dessert-overlay');
+const dessertCloseBtn = document.querySelector('.close-dessert');
+const dessertTitle = document.querySelector('.title');
+const dessertImg = document.querySelector('.dessert-img');
+const dessertName = document.querySelector('.dessert-name');
+const dessertPrice = document.querySelector('.dessert-price');
+
+function pickDessert() {
+    return desserts[Math.floor(Math.random() * desserts.length)];
+}
+
+function showDessertCard() {
+    const dessert = pickDessert();
+    dessertTitle.textContent = 'Craving something sweet?';
+    dessertImg.src = dessert.img;
+    dessertName.textContent = dessert.name;
+    dessertPrice.textContent = `₹${dessert.price}`
+    dessertOverlay.style.display = 'flex';
+}
+
+dessertCloseBtn.addEventListener('click', () => {
+    dessertOverlay.style.display = 'none';
+})
 
 function renderOrder() {
     if (order.length === 0) {
@@ -160,6 +238,7 @@ orderForm.addEventListener('submit', (event) => {
 
     const orderID = makeOrderId();
     showOverlay('success', `Order placed! Your order ID: ${orderID}`);
+    orderJustPlaced = true;
 
     order = [];
     localStorage.setItem('order', JSON.stringify(order));
@@ -231,5 +310,9 @@ function showOverlay(type, message) {
 
 jsCloseBtn.addEventListener('click', () => {
     overlayContainer.style.display = 'none';
+    if (orderJustPlaced) {
+        orderJustPlaced = false;
+        showDessertCard();
+    }
 })
 
