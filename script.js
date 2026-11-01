@@ -74,7 +74,6 @@ submitBtn.addEventListener('click', (event) => {
         rating: selectedRating
     };
 
-    
     if (inputValue === '' || textAreaValue === '' || selectedRating === 0) {
         alert('Please fill in all fields');
         return;
@@ -235,4 +234,14 @@ const hamburgerBtn = document.querySelector('.hamburger');
 
 hamburgerBtn.addEventListener('click', () => {
     siteHeader.classList.toggle('open');
+})
+
+const navLinks = document.querySelector('.links');
+navLinks.addEventListener('click', () => {
+    siteHeader.classList.remove('open');
+})
+
+const bookTable = document.querySelector('.book-table');
+bookTable.addEventListener('click', () => {
+    siteHeader.classList.remove('open');
 })

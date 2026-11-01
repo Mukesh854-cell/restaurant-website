@@ -1276,6 +1276,7 @@ li {
 }
 
 @media (max-width: 600px) {
+
     /* header */
     .heading {
         padding: 8px 12px;
