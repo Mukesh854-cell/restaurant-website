@@ -114,7 +114,7 @@ const menuItems = [
     {
         id: 17,
         name: 'Chocolate Triffle',
-        img: 'food images/Chocolate-trifle.jpg',
+        img: 'food images/Chocolate-Trifle.jpg',
         price: 150,
         category: 'Desserts'
     },
