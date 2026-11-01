@@ -38,13 +38,13 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(statsSection);
 
 const starRating = document.querySelector('.star-rating');
+const allStars = document.querySelectorAll('.star');
 let selectedRating = 0;
 
 starRating.addEventListener('click', (event) => {
     if (event.target.classList.contains('star')) {
         selectedRating = Number(event.target.dataset.value);
 
-        allStars = document.querySelectorAll('.star');
         allStars.forEach((star) => {
             const starValue = Number(star.dataset.value);
 
@@ -74,12 +74,13 @@ submitBtn.addEventListener('click', (event) => {
         rating: selectedRating
     };
 
-    reviews.unshift(newReview);
-
+    
     if (inputValue === '' || textAreaValue === '' || selectedRating === 0) {
         alert('Please fill in all fields');
         return;
     }
+    reviews.unshift(newReview);
+    localStorage.setItem('reviews', JSON.stringify(reviews));
 
     inputBox.value = '';
     textAreaBox.value = '';
@@ -97,6 +98,11 @@ let reviews = [
     { id: 2, name: 'Rahul K.', comment: 'Great ambiance, will visit again.', rating: 4 },
     { id: 3, name: 'Jay P.', comment: 'Good food with Good Music in background!', rating: 4 }
 ];
+
+const savedReviews = JSON.parse(localStorage.getItem('reviews'));
+if (savedReviews) {
+    reviews = savedReviews;
+}
 
 renderReviews();
 
@@ -222,4 +228,11 @@ function showOverlay(type, message) {
 
 jsCloseBtn.addEventListener('click', () => {
     overlayContainer.style.display = 'none';
+})
+
+const siteHeader = document.querySelector('.heading');
+const hamburgerBtn = document.querySelector('.hamburger');
+
+hamburgerBtn.addEventListener('click', () => {
+    siteHeader.classList.toggle('open');
 })
